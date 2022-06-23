@@ -1,0 +1,143 @@
+{
+    "name": "jest-launchdarkly-mock-example",
+    "version": "1.0.0",
+    "description": "Example React application using jest to mock LD flag values in various ways.",
+    "main": "index.tsx",
+    "author": "jmgrimes",
+    "license": "CC0-1.0",
+    "scripts": {
+        "build": "webpack --config webpack.config.js --env env=production",
+        "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+        "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
+        "start": "webpack serve --config webpack.config.js --env env=development",
+        "test": "jest --watchAll",
+        "test-ci": "jest"
+    },
+    "dependencies": {
+        "launchdarkly-js-client-sdk": "^2.22.1",
+        "launchdarkly-react-client-sdk": "^2.26.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-transform-runtime": "^7.18.5",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "@testing-library/dom": "^8.14.0",
+        "@testing-library/jest-dom": "^5.16.4",
+        "@testing-library/react": "^13.3.0",
+        "@testing-library/user-event": "^14.2.1",
+        "@types/jest": "^28.1.3",
+        "@types/jest-when": "^3.5.1",
+        "@types/react": "^18.0.14",
+        "@types/react-dom": "^18.0.5",
+        "@typescript-eslint/eslint-plugin": "^5.29.0",
+        "@typescript-eslint/parser": "^5.29.0",
+        "babel-loader": "^8.2.5",
+        "clean-webpack-plugin": "^4.0.0",
+        "css-loader": "^6.7.1",
+        "eslint": "^8.18.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.30.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "html-webpack-plugin": "^5.5.0",
+        "jest": "^28.1.1",
+        "jest-environment-jsdom": "^28.1.1",
+        "jest-launchdarkly-mock": "^1.0.5",
+        "jest-when": "^3.5.1",
+        "prettier": "^2.7.1",
+        "style-loader": "^3.3.1",
+        "typescript": "^4.7.4",
+        "webpack": "^5.73.0",
+        "webpack-cli": "^4.10.0",
+        "webpack-dev-server": "^4.9.2"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env",
+            [
+                "@babel/preset-react",
+                {
+                    "runtime": "automatic"
+                }
+            ],
+            "@babel/preset-typescript"
+        ],
+        "plugins": [
+            [
+                "@babel/plugin-transform-runtime",
+                {
+                    "regenerator": true
+                }
+            ]
+        ]
+    },
+    "eslintConfig": {
+        "parser": "@typescript-eslint/parser",
+        "parserOptions": {
+            "ecmaVersion": 2020,
+            "sourceType": "module",
+            "ecmaFeatures": {
+                "jsx": true
+            }
+        },
+        "settings": {
+            "react": {
+                "version": "detect"
+            }
+        },
+        "extends": [
+            "plugin:react/recommended",
+            "plugin:react-hooks/recommended",
+            "plugin:@typescript-eslint/recommended",
+            "plugin:import/errors",
+            "plugin:import/warnings",
+            "plugin:import/typescript",
+            "plugin:jsx-a11y/recommended",
+            "plugin:prettier/recommended"
+        ],
+        "rules": {
+            "no-unused-vars": "off",
+            "@typescript-eslint/no-unused-vars": [
+                "error"
+            ],
+            "@typescript-eslint/no-var-requires": "off",
+            "react-hooks/rules-of-hooks": "error",
+            "react-hooks/exhaustive-deps": "warn",
+            "react/prop-types": "off",
+            "react/jsx-uses-react": "off",
+            "react/react-in-jsx-scope": "off",
+            "@typescript-eslint/explicit-module-boundary-types": "off"
+        }
+    },
+    "jest": {
+        "setupFiles": [
+            "jest-launchdarkly-mock"
+        ],
+        "setupFilesAfterEnv": [
+            "<rootDir>/jest.setup.js"
+        ],
+        "testEnvironment": "jsdom",
+        "testPathIgnorePatterns": [
+            "tsoutput"
+        ],
+        "verbose": true
+    },
+    "prettier": {
+        "arrowParens": "always",
+        "bracketSameLine": true,
+        "jsxSingleQuote": false,
+        "printWidth": 120,
+        "semi": false,
+        "singleQuote": false,
+        "trailingComma": "all",
+        "tabWidth": 4,
+        "useTabs": false
+    }
+}
